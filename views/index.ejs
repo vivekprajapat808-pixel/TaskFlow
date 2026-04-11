@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta title="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Tasks</title>
+    <link rel="stylesheet" href="/style.css"> 
+</head>
+<body>
+    <h1>Your Tasks</h1>
+
+    <div class="container">
+        <% if (tasks.length === 0) { %>
+            <div class="task" style="text-align: center; border-left: none;">
+                <p>No tasks found. Start by creating one!</p>
+            </div>
+        <% } else { %>
+            <% for (task of tasks) { %> 
+                <div class="task"> 
+                    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <form method="POST" action="/tasks/<%= task.id %>/done?_method=PATCH">
+                            <button class="btn-tick <%= task.isDone ? 'done' : '' %>">
+                                <%= task.isDone ? '✓' : '' %>
+                            </button>
+                        </form>
+
+                        <h3 class="title <%= task.isDone ? 'completed-text' : '' %>">
+                            <%= task.title %> 
+                        </h3>
+                    </div>
+
+                    <p class="details <%= task.isDone ? 'completed-text' : '' %>">
+                        <%= task.details %> 
+                    </p>
+
+                    <div class="actions">
+                        <a href="/tasks/<%= task.id %>" class="btn btn-primary">View Details</a> 
+                        <a href="/tasks/<%= task.id %>/edit" class="btn btn-outline">Edit Task</a> 
+                        <a href="/tasks/<%= task.id %>/delete" class="btn btn-delete">Delete</a> 
+                    </div>
+                </div> 
+            <% } %>
+        <% } %>
+
+        <a href="/tasks/new" class="create-link"> + Create a new Task</a> 
+    </div>
+</body>
+</html>

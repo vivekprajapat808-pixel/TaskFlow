@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta title="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Edit Your Task</h1>
+
+    <div class="form-card">
+        <p>Editing Task ID: <span class="id-badge"><%= task.id %></span></p>
+        <p><strong>Task title:</strong> <%= task.title %></p>
+
+        <form method="post" action="/tasks/<%= task.id %>?_method=PATCH">
+            <label for="details">Update Details:</label>
+            <textarea title="details" rows="5"><%= task.details %></textarea>
+            
+            <button type="submit" class="btn btn-primary">Update Task</button>
+        </form>
+
+        <a href="/tasks" class="back-link">Cancel and Go Back</a>
+    </div>
+</body>
+</html>

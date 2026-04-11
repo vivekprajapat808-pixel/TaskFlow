@@ -1,0 +1,236 @@
+/* Custom properties for easy theme management */
+:root {
+    --primary: #800000; /* Maroon */
+    --accent: #fdf5e6;  /* BlanchedAlmond */
+    --bg: #f4f7f6;
+    --text: #333;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --secondary: #555;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: var(--primary); /* */
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Task Card */
+.task {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--primary);
+    transition: transform 0.2s ease;
+}
+
+.name {
+    font-style: italic; /* */
+    color: var(--primary);
+    margin: 0 0 10px 0;
+}
+
+.details {
+    margin-bottom: 20px;
+    color: var(--secondary);
+}
+
+/* Button Styling for Links */
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background 0.3s ease, color 0.3s ease;
+    margin-right: 10px;
+}
+
+/* Primary Button (View Details) */
+.btn-primary {
+    background-color: var(--primary);
+    color: white !important;
+}
+
+.btn-primary:hover {
+    background-color: #a00000;
+}
+
+/* Outline Button (Edits) */
+.btn-outline {
+    border: 1px solid var(--primary);
+    color: var(--primary) !important;
+}
+
+.btn-outline:hover {
+    background-color: var(--accent); /* */
+}
+
+/* Create New Task Link */
+.create-link {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.create-link:hover {
+    text-decoration: underline;
+}
+/* Specific Styles for Show and Edit Pages */
+
+/* Center the content for single-item views */
+.detail-card, .form-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 30px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: var(--shadow);
+    margin-top: 20px;
+}
+
+.id-badge {
+    font-family: monospace;
+    background: #eee;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+textarea, input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn't break width */
+}
+
+textarea:focus, input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 5px rgba(128, 0, 0, 0.2);
+}
+
+.back-link {
+    margin-top: 20px;
+    display: block;
+    color: var(--secondary);
+    font-size: 0.9rem;
+}
+/* These rules (already in your style.css) will style the 'New Task' page */
+.form-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 30px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: var(--shadow);
+    margin-top: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary); /* Using the Maroon theme */
+    box-shadow: 0 0 5px rgba(128, 0, 0, 0.2);
+}
+/* Add this to your style.css */
+/* Delete Button - matches the 'Edit' and 'View' button structure */
+.btn-delete {
+    display: inline-block;
+    text-decoration: none;
+    padding: 8px 16px; /* Matches btn-primary */
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background 0.3s ease, color 0.3s ease;
+    border: 1px solid #dc3545; /* Red border for 'Delete' */
+    color: #dc3545 !important;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btn-delete:hover {
+    background-color: #fdf5e6; /* Uses your 'BlanchedAlmond' accent */
+    color: #a00000 !important;
+    border-color: #a00000;
+}
+/* Style for completed tasks */
+.completed-text {
+    text-decoration: line-through;
+    color: #888;
+    opacity: 0.6;
+}
+
+/* A custom checkbox-style button */
+.btn-tick {
+    height: 25px;
+    background: none;
+    border: 2px solid var(--primary); /* */
+    color: var(--primary);
+    padding: 5px 10px;
+    border-radius: 20%;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.btn-tick.done {
+    background-color: var(--primary);
+    color: white;
+}
