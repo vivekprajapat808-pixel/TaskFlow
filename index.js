@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 const methodOverride = require("method-override");
@@ -14,7 +14,7 @@ app.use(methodOverride("_method"));
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "client", "dist")));
 
 // Initial seed data with priority and due date support
 let tasks = [
@@ -245,6 +245,11 @@ app.delete("/tasks/:id", (req, res) => {
     let { id } = req.params;
     tasks = tasks.filter((p) => id !== p.id);
     res.redirect("/tasks");
+});
+
+// Catch-all route to serve React App for any client routes
+app.get("/{*splat}", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
 });
 
 // Global Error Handler
